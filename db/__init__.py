@@ -1,11 +1,8 @@
-import yaml
 import pymongo
+from consts import MONGO_URI, MONGO_PORT
 
-MONGO_URI = ""
-MONGO_PORT = 0
+class MongoManager:
+    def __init__(self, client=None):
+        self.client = pymongo.MongoClient(MONGO_URI, MONGO_PORT)
 
-with open(r'../config.yml') as file:
-    file = yaml.load(file, Loader=yaml.FullLoader)
-    mongo_conf = file['mongo']
-    MONGO_URI = mongo_conf['uri']
-    MONGO_PORT = mongo_conf['port']
+client = MongoManager().client
