@@ -1,3 +1,11 @@
 mongo:
   uri: ${MONGO_URI}
   port: ${MONGO_PORT}
+
+appkey: ${RAPIDAPI_APPKEY}
+
+coingecko:
+  host: https://coingecko.p.rapidapi.com
+  resources:
+    simple_price: /simple/price
+    supported_currencies: /simple/supported_vs_currencies
