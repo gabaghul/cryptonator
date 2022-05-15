@@ -14,3 +14,13 @@ COINGECKO_HOST = env['coingecko']['host']
 
 # COINGECKO API RESOURCES
 ENDPOINT_SUPPORTED_CURRENCIES = env['coingecko']['resources']['supported_currencies']
+ENDPOINT_CURRENCY_VALUE = env['coingecko']['resources']['simple_price']
+
+# SECONDS TO WAIT TO LOAD NEW HISTORIES INTO MONGO
+LOAD_IN_SECONDS = 5 * 60
+
+# ANALYZED COIN
+COIN_SYMBOL = 'btc'
+
+# CURRENCY COMPARISON INDEX
+CURRENCY_INDEX = 'usd'
