@@ -5,10 +5,10 @@ df_btc_hour = pd.read_csv('bitcoin_load.csv')
 
 for index, row in df_btc_hour.iterrows():
     history = {
-        'date': row['date'],
         'bitcoin': {
             'usd': row['close']
-        }
+        },
+        'date': row['date']
     }
 
     insert_ok = insert_coin_history(history)

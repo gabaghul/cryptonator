@@ -34,7 +34,7 @@ def get_currency_value(symbol: str, currency_index: str) -> Tuple[dict, int]:
     history = response.json()
     now = datetime.now()
 
-    now = now.strftime('%Y-%m-%d %H:%M:%S')
+    now = now.strftime('%Y-%m-%d %H:%M:00')
     history['date'] = now
     
     return history, response.status_code
