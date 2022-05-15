@@ -5,16 +5,22 @@ description = "Project for study purposes about RNN continuous training and pred
 authors = ["Gabriel Soares Campanário <gabriel.camp96@hotmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "3.8"
 Flask = "^2.1.2"
 pymongo = "^4.1.1"
 envyaml = "^1.10.211231"
 requests = "^2.27.1"
 pandas = "^1.4.2"
 schedule = "^1.1.0"
+tensorflow = "^2.8.0"
+sklearn = "^0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
+ipykernel = "^6.13.0"
+jupyter = "^1.0.0"
+plotly = "^5.8.0"
+matplotlib = "^3.5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

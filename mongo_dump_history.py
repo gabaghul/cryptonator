@@ -3,7 +3,7 @@ from db.repository import insert_coin_history
 
 df_btc_hour = pd.read_csv('bitcoin_load.csv')
 
-for index, row in df_btc_hour.iterrows():
+for _, row in df_btc_hour.iterrows():
     history = {
         'bitcoin': {
             'usd': row['close']
