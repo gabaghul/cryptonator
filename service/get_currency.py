@@ -4,7 +4,7 @@ from typing import Tuple
 import requests
 from commons.mapping import get_currency_name
 
-from consts import CURRENCY_INDEX, ENDPOINT_CURRENCY_VALUE, RAPIDAPI_APPKEY, COINGECKO_HOST, ENDPOINT_SUPPORTED_CURRENCIES
+from consts import ENDPOINT_CURRENCY_VALUE, RAPIDAPI_APPKEY, COINGECKO_HOST, ENDPOINT_SUPPORTED_CURRENCIES
 
 def get_supported_currencies() -> Tuple[list, int]:
     url = COINGECKO_HOST + ENDPOINT_SUPPORTED_CURRENCIES
@@ -32,6 +32,9 @@ def get_currency_value(symbol: str, currency_index: str) -> Tuple[dict, int]:
     response = requests.request("GET", url, headers=headers, params=params)
 
     history = response.json()
-    history['date'] = datetime.now()
+    now = datetime.now()
+
+    now = now.strftime('%Y-%m-%d %H:%M:%S')
+    history['date'] = now
     
     return history, response.status_code

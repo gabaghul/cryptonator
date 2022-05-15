@@ -1,12 +1,13 @@
 from datetime import datetime
 import logging
 import time
-from consts import COIN_SYMBOL, CURRENCY_INDEX, LOAD_IN_SECONDS
+import schedule
+from consts import COIN_SYMBOL, CURRENCY_INDEX
 from db.repository import insert_coin_history
 from service.get_currency import get_currency_value
 
-logging.basicConfig(level= logging.INFO)
-while True:
+logger = logging.basicConfig(level=logging.INFO)
+def job(): 
     logging.info(f'writing at: {datetime.now()}')
 
     res, status_code = get_currency_value(COIN_SYMBOL, CURRENCY_INDEX)
@@ -16,4 +17,9 @@ while True:
     insert_ok = insert_coin_history(res)
     if not insert_ok:
         raise SystemError('something went wrong when inserting data into db')
-    time.sleep(LOAD_IN_SECONDS)
+
+schedule.every().hour.at('00:00').do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
